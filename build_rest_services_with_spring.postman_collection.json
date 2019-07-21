@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "5f4738c5-ce29-4fa3-bf6d-24a8b75e95c3",
+		"name": "build_rest_services_with_spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f19943c-9457-4c5f-b16c-967a69a69ff2",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"employee_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Roman\",\n\t\"role\":\"qa\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/employees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f19943c-9457-4c5f-b16c-967a69a69ff2",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"employee_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/employees/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{employee_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f19943c-9457-4c5f-b16c-967a69a69ff2",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"employee_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/employees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f19943c-9457-4c5f-b16c-967a69a69ff2",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Adam\",\n\t\"role\":\"qa2\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/employees/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{employee_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f19943c-9457-4c5f-b16c-967a69a69ff2",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/employees/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"employees",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{employee_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
