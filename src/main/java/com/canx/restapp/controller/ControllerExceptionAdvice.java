@@ -21,6 +21,7 @@ public class ControllerExceptionAdvice {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ServiceError exceptionHandler(Exception ex) {
+        ex.printStackTrace();
         return new ServiceError(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage());
     }
 
